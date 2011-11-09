@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OmniAuthTest</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="user_nav">
+    <% if current_user %>
+      Welcome, <%= current_user.name %>!
+      <%= link_to "Sign Out", signout_path %>
+    <% else %>
+      <%= link_to "Sign in with github", "/auth/github" %>
+    <% end %>
+  </div>
+
+<%= yield %>
+
+</body>
+</html>
